@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Datum</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ datum.id }}</td>
+            </tr>
+            <tr>
+                <th>Headers</th>
+                <td>{{ datum.headers }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ datum.body }}</td>
+            </tr>
+            <tr>
+                <th>Route</th>
+                <td>{{ datum.route }}</td>
+            </tr>
+            <tr>
+                <th>Method</th>
+                <td>{{ datum.method }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ datum.ip }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if datum.created %}{{ datum.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('_edit', { 'id': datum.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

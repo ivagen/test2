@@ -1,0 +1,6 @@
+services:
+    app.data.request.service:
+        class: AppBundle\Service\DataService
+        arguments:
+            - "@request_stack"
+            - "@doctrine.orm.entity_manager"

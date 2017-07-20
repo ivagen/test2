@@ -1,0 +1,17 @@
+AppBundle\Entity\Data:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        headers:
+            expose: true
+        body:
+            expose: true
+        route:
+            expose: true
+        method:
+            expose: true
+        ip:
+            expose: true
+        created:
+            expose: true

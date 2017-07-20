@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Datas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Headers</th>
+                <th>Body</th>
+                <th>Route</th>
+                <th>Method</th>
+                <th>Ip</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for datum in datas %}
+            <tr>
+                <td><a href="{{ path('_show', { 'id': datum.id }) }}">{{ datum.id }}</a></td>
+                <td>{{ datum.headers }}</td>
+                <td>{{ datum.body }}</td>
+                <td>{{ datum.route }}</td>
+                <td>{{ datum.method }}</td>
+                <td>{{ datum.ip }}</td>
+                <td>{% if datum.created %}{{ datum.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('_show', { 'id': datum.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('_edit', { 'id': datum.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_new') }}">Create a new datum</a>
+        </li>
+    </ul>
+{% endblock %}

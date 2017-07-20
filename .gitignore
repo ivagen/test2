@@ -1,0 +1,7 @@
+
+/.idea/
+/docker/mysql/data/
+/docker/mysql/log/
+/www/.sudo_as_admin_successful
+/www/.bash_history
+/www/.composer/
