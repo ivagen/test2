@@ -24,7 +24,7 @@ class DataController extends FOSRestController
      * @Route("/getRequest", name="_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function getAction()
     {
         try {
 
@@ -44,7 +44,7 @@ class DataController extends FOSRestController
                 $this->view(
                     [
                         'Success' => false,
-                        'Message' => 'something is wrong',
+                        'Messages' => ['something is wrong'],
                     ],
                     Response::HTTP_INTERNAL_SERVER_ERROR
                 )
@@ -91,7 +91,7 @@ class DataController extends FOSRestController
                             'Success'  => false,
                             'Messages' => $form->getErrors(),
                         ],
-                        Response::HTTP_CREATED
+                        Response::HTTP_BAD_REQUEST
                     )
                 );
             }
@@ -104,7 +104,7 @@ class DataController extends FOSRestController
                 $this->view(
                     [
                         'Success' => false,
-                        'Message' => 'something is wrong',
+                        'Messages' => ['something is wrong'],
                     ],
                     Response::HTTP_INTERNAL_SERVER_ERROR
                 )

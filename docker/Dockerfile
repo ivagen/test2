@@ -31,7 +31,12 @@ RUN apt-get update \
 
 # Other programms
 RUN apt-get install -y \
-  sudo nginx-full curl unzip nano git git-core
+  sudo nginx-full curl unzip nano git git-core wget
+
+# PHPUnit
+RUN wget https://phar.phpunit.de/phpunit.phar
+RUN chmod +x phpunit.phar
+RUN mv phpunit.phar /usr/local/bin/phpunit
 
 # ImageMagick
 RUN apt-get install -y \
